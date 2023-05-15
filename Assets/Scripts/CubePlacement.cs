@@ -55,7 +55,9 @@ public class CubePlacement : MonoBehaviour
             }
             else
             {
-                instantiatedCube.transform.position = pose.position; // Otherwise, update the position of the cube to the hit position
+                Vector3 newPosition = pose.position;
+                newPosition.y = pose.position.y + instantiatedCube.transform.localScale.y / 2; // Offset the cube's position by half of its height
+                instantiatedCube.transform.position = newPosition; // Otherwise, update the position of the cube to the hit position
             }
         }
     }
