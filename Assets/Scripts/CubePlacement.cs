@@ -60,5 +60,14 @@ public class CubePlacement : MonoBehaviour
                 instantiatedCube.transform.position = newPosition; // Otherwise, update the position of the cube to the hit position
             }
         }
+         if (instantiatedCube != null)
+        {
+            // Calculate the scale factor based on the camera's distance to the cube
+            
+            float distance = Vector3.Distance( Camera.main.transform.position, instantiatedCube.transform.position);
+            float scaleFactor = 1f/distance;
+
+            instantiatedCube.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        }
     }
 }
